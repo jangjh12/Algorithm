@@ -1,0 +1,28 @@
+num = int(input())  # 몇번 입력받을지 정함
+count = 1           # 스택에 넣기 위한 수
+stack = []          # 빈리스트를 만들어 스택활용
+pp = []             # push, pop 의 기호인 +, - 를 넣기 위한 리스트
+msg = True
+
+for i in range(0,num):
+  s = int(input())  # 수열 입력
+  
+  while count <= s:  # 카운트가 입력된 수열보다 작을 때 까지 실행
+    stack.append(count) # 스택에 카운트값을 축적
+    pp.append('+')  # push이므로 + 추가
+    count += 1      # 반복문이 실행되었으면 카운트 크기를 1증가
+
+  if stack[-1] ==s: # 스택의 마지막 값과 입력된 수열의 값이 같으면 실행
+    stack.pop()     # 스택의 마지막 값 pop
+    pp.append('-')  # pop이므로 - 추가
+  
+  else:
+    msg = False
+
+if msg == False:
+  print('NO')
+
+else:
+  for i in pp:
+    print(i)
+
