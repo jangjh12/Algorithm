@@ -1,0 +1,23 @@
+n = int(input())
+money = map(int,input().split())
+m = int(input())
+
+def binary(target,data):
+  start = 0;
+  end = max(data)
+  
+  while start <= end:
+    s = 0
+    mid = (start+end) // 2
+    for i in data:
+      if i > mid:
+          s += mid
+      else:
+        s += i
+    if(s <= target):
+      start = mid + 1
+    elif(s > target):
+      end = mid -1
+  return end
+
+print(binary(m,money))
