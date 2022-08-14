@@ -1,0 +1,20 @@
+n, m = map(int,input().split()) #자르려는 나무의 개수와 나무의 길이
+t = list(map(int,input().split()))
+
+def binary(target,data):
+  start = 0;
+  end = max(data)
+ 
+  while start<=end:
+    s = 0
+    mid = (start+end) // 2
+    for i in t:
+      if i > mid:
+          s += i - mid
+    if(s >= target):
+      start = mid + 1
+    elif(s < target):
+      end = mid -1
+  return end
+
+print(binary(m,t))
